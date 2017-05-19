@@ -25,7 +25,7 @@ public class UI {
 			System.out.println("3 - Stack Peek");
 			System.out.println("4 - Stack Get Size");
 			System.out.println("5 - Stack Check is Empty");
-			System.out.println("6 - Postfix to Infix Notations");
+			System.out.println("6 - Infix to Postfix Notations");
 			System.out.println("7 - Evaluating Postfix Experessions");
 			System.out.println("8 - Close the Program");
 			System.out.println("====================================================================");
@@ -56,9 +56,9 @@ public class UI {
 				}
 
 				else if (tempInput == 6) {
-					System.out.println("Enter the Postfix Expression : ");
+					System.out.println("Enter the infix Expression : ");
 					String x = sc.nextLine();
-					System.out.println("Infix Expression  : " + exp.infixToPostfix(x));
+					System.out.println("Postfix Expression  : " + exp.infixToPostfix(x));
 				}
 
 				else if (tempInput == 7) {

@@ -4,82 +4,113 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Random;
 import java.util.Scanner;
 
 import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
+/**
+ * @author Mohamed Mashaal
+ *
+ */
 public class Hangman implements IHangman {
-	private String words[];
-	private Random secretWord = new Random();
-	public String thehiddenSecretWord;
-	public String thesavedSecretWord;
-	int maxNumGuesses = 0;
-	int numofGuesses = 0;
-	public StringBuffer temp;
+  /**
+   * THE string container for the dic.
+   */
+  private String[] word;
+  /**
+   * the random one.
+   */
+  private final Random secretWord = new Random();
+  /**
+   * the word shown.
+   */
+  public String thehWord;
+  /**
+   * the secret one .
+   */
+  public String thesWord;
+  /**
+   * the max num of gusses.
+   */
+  private int maxN = 0;
+  /**
+   * the num of guesses done .
+   */
+  private int numofG = 0;
+  /**
+   * the buffer used to build the string.
+   */
+  public StringBuffer temp;
 
-	@Override
-	public void setDictionary(String[] words) {
-		// TODO Auto-generated method stub
-		this.words = words;
-	}
+  @Override
+  public void setDictionary(final String[] words) {
+    word = words;
+  }
 
-	@Override
-	public String selectRandomSecretWord() {
-		// TODO Auto-generated method stub
-		if (words != null) {
-			thehiddenSecretWord = words[secretWord.nextInt(words.length)];
-			temp = new StringBuffer(thehiddenSecretWord);
-			for (int i = 0; i < thehiddenSecretWord.length(); i++) {
-				temp.setCharAt(i, '-');
-			}
-			return (thehiddenSecretWord);
-		}
-		return null;
-	}
+  @Override
+  public String selectRandomSecretWord() {
+    // TODO Auto-generated method
+    // stub
+    if (word != null) {
+      thehWord = word[secretWord.nextInt(word.length)];
+      temp = new StringBuffer(thehWord);
+      for (int i = 0; i < thehWord.length(); i++) {
+        temp.setCharAt(i, '-');
+      }
+      return (thehWord);
+    }
+    return null;
+  }
 
-	@Override
-	public String guess(Character c) {
-		// TODO Auto-generated method stub
-		int flag = -1;
-		if (numofGuesses == maxNumGuesses) {
-			return null;
-		}
-		thesavedSecretWord = temp.toString();
-		for (int i = 0; i < thehiddenSecretWord.length(); i++) {
-			if (c.toLowerCase(c) == thehiddenSecretWord.toLowerCase().charAt(i)) {
-				temp.setCharAt(i, thehiddenSecretWord.charAt(i));
-				flag = 1;
-			}
-		}
-		if (flag == 1) {
-			thesavedSecretWord = temp.toString();
-			return thesavedSecretWord;
-		}
-		numofGuesses++;
-		if (numofGuesses == maxNumGuesses) {
-			return null;
-		}
-		return thesavedSecretWord;
-	}
+  @Override
+  public String guess(final Character c) {
+    // TODO Auto-generated method
+    // stub
+    int flag = -1;
+    if (numofG == maxN) {
+      return null;
+    }
+    thesWord = temp.toString();
+    for (int i = 0; i < thehWord.length(); i++) {
+      if (Character.toLowerCase(c) == thehWord.toLowerCase().charAt(i)) {
+        temp.setCharAt(i, thehWord.charAt(i));
+        flag = 1;
+      }
+    }
+    if (flag == 1) {
+      thesWord = temp.toString();
+      return thesWord;
+    }
+    numofG++;
+    if (numofG == maxN) {
+      return null;
+    }
+    return thesWord;
+  }
 
-	@Override
-	public void setMaxWrongGuesses(Integer max) {
-		// TODO Auto-generated method stub
-		maxNumGuesses = max;
+  @Override
+  public void setMaxWrongGuesses(final Integer max) {
+    // TODO Auto-generated method
+    // stub
+    maxN = max;
 
-	}
+  }
 
-	public String[] readFile() throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("Dic.txt"));
-		List<String> lines = new ArrayList<String>();
-		while (sc.hasNextLine()) {
-			lines.add(sc.nextLine());
-		}
+  /**
+   * @return "a file with the table of words .
+   * @throws FileNotFoundException
+   *           in case of file not found.
+   */
+  public String[] readFile() throws FileNotFoundException {
+    final Scanner sc = new Scanner(new File("Dic.txt"));
+    final List<String> lines = new ArrayList<String>();
+    while (sc.hasNextLine()) {
+      lines.add(sc.nextLine());
+    }
 
-		String[] dicTable = lines.toArray(new String[0]);
-		sc.close();
-		return dicTable;
-	}
+    final String[] dicTable = lines.toArray(new String[0]);
+    sc.close();
+    return dicTable;
+  }
 }

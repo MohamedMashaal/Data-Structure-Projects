@@ -1,38 +1,78 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs60_75;
 
+/**
+ * @author Mohamed Mashaal.
+ *
+ */
+
 public class DLNode {
-	private Object element;
-	private DLNode next;
-	private DLNode prev;
+  /**
+   * the element saved .
+   */
+  private Object elementt;
+  /**
+   *  the next node.
+   */
+  private DLNode nextt;
+  /**
+   * the prev node.
+   */
+  private DLNode prevv;
 
-	public DLNode(Object element, DLNode next, DLNode prev) {
-		// TODO Auto-generated constructor stub
-		this.element = element;
-		this.next = next;
-		this.prev = prev;
-	}
+  /**
+   * @param element the element to be added.
+   * @param next the next node.
+   * @param prev the prev one.
+   */
+  public DLNode(final Object element,
+      final DLNode next,
+      final DLNode prev) {
+    // TODO Auto-generated
+    // constructor stub
+    elementt = element;
+    nextt = next;
+    prevv = prev;
+  }
 
-	public Object getElement() {
-		return element;
-	}
+  /**
+   * @return the element.
+   */
+  public Object getElement() {
+    return elementt;
+  }
 
-	public DLNode getNext() {
-		return next;
-	}
+  /**
+   * @return the next node.
+   */
+  public DLNode getNext() {
+    return nextt;
+  }
 
-	public DLNode getPrev() {
-		return prev;
-	}
+  /**
+   * @return the prev node .
+   */
+  public DLNode getPrev() {
+    return prevv;
+  }
 
-	public void setElement(Object element) {
-		this.element = element;
-	}
+  /**
+   * @param element setting the element.
+   */
+  public void setElement(final Object element) {
+    elementt = element;
+  }
 
-	public void setNext(DLNode next) {
-		this.next = next;
-	}
+  /**
+   * @param next setting the next.
+   */
+  public void setNext(final DLNode next) {
+    nextt = next;
+  }
 
-	public void setPrev(DLNode prev) {
-		this.prev = prev;
-	}
+  /**
+   * @param prev setting the prev.
+   */
+  public void setPrev(final DLNode prev) {
+    prevv = prev;
+  }
 }

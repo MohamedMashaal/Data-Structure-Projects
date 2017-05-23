@@ -1,29 +1,60 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs60_75;
 
+/**
+ * @author Mohamed Mashaal
+ *
+ */
 public class SLNode {
-	private Object element;
-	private SLNode next;
+  /**
+   * the element saved .
+   */
+  private Object elementt;
+  /**
+   * the next node .
+   */
+  private SLNode nextt;
 
-	public SLNode(Object element, SLNode next) {
-		// TODO Auto-generated constructor stub
-		this.element = element;
-		this.next = next;
-	}
+  /**
+   * @param element
+   *          the element to be saved.
+   * @param next
+   *          the next node.
+   */
+  public SLNode(final Object element, final SLNode next) {
+    // TODO Auto-generated
+    // constructor stub
+    elementt = element;
+    nextt = next;
+  }
 
-	public Object getElement() {
-		return element;
-	}
+  /**
+   * @return the element.
+   */
+  public Object getElement() {
+    return elementt;
+  }
 
-	public SLNode getNext() {
-		return next;
-	}
+  /**
+   * @return the next node .
+   */
+  public SLNode getNext() {
+    return nextt;
+  }
 
-	public void setElement(Object element) {
-		this.element = element;
-	}
+  /**
+   * @param element
+   *          setting the element.
+   */
+  public void setElement(final Object element) {
+    elementt = element;
+  }
 
-	public void setNext(SLNode next) {
-		this.next = next;
-	}
+  /**
+   * @param next
+   *          setting the next node.
+   */
+  public void setNext(final SLNode next) {
+    nextt = next;
+  }
 
 }
